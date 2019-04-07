@@ -254,12 +254,12 @@ def serviceX(rank):
     try:
         if rank.type == 0:
             return
-        if rank.type == 19 or rank.type == 32:
+        if rank.type == 19 or rank.type == 32 or rank.type 11:
             if meM in opps3:
                 if opps2 in BotWar:
                     pass
                 else:
-                    PrankBots["blacklist"] = True
+                    PrankBots["blacklist"] or PrankBots["PROTECT"]  = True
                     try:
                         kk1.inviteIntoGroup(opps1,[opps3])
                         kk1.kickoutFromGroup(opps1,[opps2])
@@ -295,7 +295,7 @@ def serviceX(rank):
                 if opps2 in BotWar:
                     pass
                 else:
-                    PrankBots["blacklist"] = True
+                    PrankBots["blacklist"] or PrankBots["PROTECT"] = True
                     try:
                         kk2.inviteIntoGroup(opps1,[opps3])
                         kk2.kickoutFromGroup(opps1,[opps2])
@@ -331,7 +331,7 @@ def serviceX(rank):
                 if opps2 in BotWar:
                     pass
                 else:
-                    PrankBots["blacklist"] = True
+                    PrankBots["blacklist"] or PrankBots["PROTECT"] = True
                     try:
                         kk3.inviteIntoGroup(opps1,[opps3])
                         kk3.kickoutFromGroup(opps1,[opps2])
@@ -367,7 +367,7 @@ def serviceX(rank):
                 if opps2 in BotWar:
                     pass
                 else:
-                    PrankBots["blacklist"] = True
+                    PrankBots["blacklist"] or PrankBots["PROTECT"] = True
                     try:
                         kk4.inviteIntoGroup(opps1,[opps3])
                         kk4.kickoutFromGroup(opps1,[opps2])
@@ -403,7 +403,7 @@ def serviceX(rank):
                 if opps2 in BotWar:
                     pass
                 else:
-                    PrankBots["blacklist"] = True
+                    PrankBots["blacklist"] or PrankBots["PROTECT"] = True
                     try:
                         kk2.inviteIntoGroup(opps1,[opps3])
                         kk1.kickoutFromGroup(opps1,[opps2])
@@ -439,7 +439,7 @@ def serviceX(rank):
                 if opps2 in BotWar:
                     pass
                 else:
-                    PrankBots["blacklist"] = True
+                    PrankBots["blacklist"] or PrankBots["PROTECT"] = True
                     try:
                         kk1.inviteIntoGroup(opps1,[opps3])
                         kk1.kickoutFromGroup(opps1,[opps2])
@@ -461,7 +461,7 @@ def serviceX(rank):
                                         me.kickoutFromGroup(opps1,[opps2])
                                     except:pass
         if rank.type == 17:
-            if opps2 in PrankBots["blacklist"]:
+            if opps2 in PrankBots["blacklist"] or PrankBots["PROTECT"]:
                 try:
                     kk1.kickoutFromGroup(opps1,[opps2])
                 except:
@@ -476,7 +476,7 @@ def serviceX(rank):
                             except:pass
             else:pass
         if rank.type == 13:
-            if opp3 in PrankBots["blacklist"]:
+            if opp3 in PrankBots["blacklist"] or PrankBots["PROTECT"]:
                 try:
                     kk4.cancelGroupInvitation(opps1,[opps3])
                 except:
@@ -1214,6 +1214,24 @@ def serviceX(rank):
                                 kk1.findAndAddContactsByMid("ube187443474747c3ec352e7efeb48c1b")
                                 me.sendMessage(R,"SETTING ALL IN ONLINE")
                             except:me.sendMessage(R,"SETTING ALL IN ONLINE")
+                        if PrankBotsData == Abouts["69"]:
+                          if D in Owner or D in meM:
+                              if R in PrankBots["PROTECT"]:
+                                  me.sendMessage(R,"Sudah on")
+                                  bot1.sendMessage(R,"Sudah on")
+                              else:
+                                  PrankBots["PROTECT"][R] = True
+                                  me.sendMessage(R,"Already on..")
+                                  bot1.sendMessage(R,"Already on..")
+                        if PrankBotsData == Abouts["70"]:
+                          if D in Owner or D in meM:
+                              if R in PrankBots["PROTECT"]:
+                                  me.sendMessage(R,"Already off")
+                                  bot1.sendMessage(R,"Already off")
+                                  del PrankBots["PROTECT"][R]
+                              else:
+                                  me.sendMessage(R,"Belum di protect")
+                                  bot1.sendMessage(R,"ok siap")
                         if PrankBotsData == Abouts["65"]:
                           if D in Owner or D in meM:
                             try:
@@ -1249,11 +1267,11 @@ def serviceX(rank):
             if Warstart == "Warkey" or Warstart == "warkey":
                 me.sendMessage(R, str(warKey))
             if Warstart == "Warbot" or Warstart == "warbot":
-                me.sendContact(to,kk1Rank)
-                me.sendContact(to,kk2Rank)
-                me.sendContact(to,kk3Rank)
-                me.sendContact(to,kk4Rank)
-                me.sendContact(to,jssRank)
+                kk1.sendContact(to,kk1Rank)
+                kk2.sendContact(to,kk2Rank)
+                kk3.sendContact(to,kk3Rank)
+                kk4.sendContact(to,kk4Rank)
+                kk4.sendContact(to,jssRank)
             if Warstart == "Warban" or Warstart == "warban":
                 if PrankBots["blacklist"] == {}:
                     me.sendMessage(R,"Tidak mempunyai kontak blacklist")
@@ -1289,9 +1307,6 @@ def serviceX(rank):
                     kk3.acceptGroupInvitation(R)
                     kk4.acceptGroupInvitation(R)
                     kk1.sendMessage(R, "already..")
-                    kk2.sendMessage(R, "already..")
-                    kk3.sendMessage(R, "already..")
-                    kk4.sendMessage(R, "already..")
                 except:
                     try:
                         gg = me.getGroup(R)
