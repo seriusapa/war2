@@ -11,13 +11,14 @@
     "Read": false,
     "Unsend": false,
     "blacklist": {},
+    "PROTECT": {},
     "myProfile": {
         "coverId": "",
         "displayName": "",
         "pictureStatus": "",
         "statusMessage": ""
     },
-    "owner": "MID OWNER DISINI",
+    "owner": "ube187443474747c3ec352e7efeb48c1b",
     "userAgent": [
         "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
         "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20100101 Firefox/5.0 (Debian)",
